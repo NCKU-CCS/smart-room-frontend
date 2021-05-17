@@ -1,7 +1,7 @@
 const MeterConstants = {
   power: {
     name: 'Power',
-    type: 'smart',
+    type: 'power',
     unit: ' kWh',
     color: '#813777',
     process: (value) => {
@@ -28,6 +28,16 @@ const MeterConstants = {
       return value;
     },
     barColor: 'rgba(55, 82, 129, 0.9)',
+  },
+  temp: {
+    name: 'Temperature',
+    type: 'temp',
+    unit: ' ˚C',
+    color: '#8F6F24',
+    process: (value) => {
+      return value;
+    },
+    barColor: 'rgba(143, 111, 36, 0.9)',
   },
 };
 

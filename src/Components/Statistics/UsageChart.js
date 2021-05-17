@@ -5,15 +5,17 @@ import MeterConstants from '../../Constant/MeterConstants';
 import getOptions from './ChartConfig';
 
 function UsageChart({
+  room,
   name,
-  usageData: { interval, data: usageData },
-  tempData,
+  usageData,
+  // tempData,
+  interval,
 }) {
   const usageConfig = MeterConstants[name];
   const option = getOptions(
     usageConfig,
-    usageData[usageConfig.type],
-    tempData,
+    usageData[room][usageConfig.type],
+    room,
     interval,
   );
   const onChartReady = (input) => {
@@ -53,15 +55,19 @@ function UsageChart({
 }
 
 UsageChart.defaultProps = {
+  room: null,
   name: 'power',
   usageData: {},
   tempData: [],
+  interval:'',
 };
 
 UsageChart.propTypes = {
+  room: PropTypes.any,
   name: PropTypes.string,
   usageData: PropTypes.instanceOf(Object),
   tempData: PropTypes.instanceOf(Array),
+  interval: PropTypes.string,
 };
 
 export default UsageChart;

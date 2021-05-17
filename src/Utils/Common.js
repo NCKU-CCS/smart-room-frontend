@@ -49,8 +49,8 @@ export const getStartEndDate = (range) => {
   const date = dayjs();
   const generateStartEnd = (day) => {
     return [
-      day.startOf('day').utc().format(DATE_FORMAT.concat('THH:mm')),
-      day.endOf('day').utc().format(DATE_FORMAT.concat('THH:mm')),
+      day.startOf('day').utc().format(DATE_FORMAT.concat('THH:mm:ss')),
+      day.endOf('day').utc().format(DATE_FORMAT.concat('THH:mm:ss')),
     ];
   };
   switch (range) {
@@ -58,8 +58,8 @@ export const getStartEndDate = (range) => {
       return generateStartEnd(date.add(-1, 'days'));
     case rangeProp.Monthly.name:
       return [
-        date.startOf('month').format(DATE_FORMAT).concat('T00:00'),
-        date.endOf('month').format(DATE_FORMAT).concat('T23:00'),
+        date.startOf('month').format(DATE_FORMAT).concat('T00:00:00'),
+        date.endOf('month').format(DATE_FORMAT).concat('T23:00:00'),
       ];
     default:
       return generateStartEnd(date);
