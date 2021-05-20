@@ -17,6 +17,7 @@ function UsageChart({
     usageData[room][usageConfig.type],
     room,
     interval,
+    usageData[room]['temp']
   );
   const onChartReady = (input) => {
     /* eslint no-underscore-dangle: ["error", { "allow": ["_t"] }] */

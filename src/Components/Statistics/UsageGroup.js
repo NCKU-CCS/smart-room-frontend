@@ -59,32 +59,14 @@ function UsageGroup({ range }) {
             interval={interval}
           />
           <UsageChart
-            room={602}
-            name="temp"
-            usageData={usageResource.data}
-            interval={interval}
-          />
-          <UsageChart
             room={608}
             name="power"
             usageData={usageResource.data}
             interval={interval}
           />
           <UsageChart
-            room={608}
-            name="temp"
-            usageData={usageResource.data}
-            interval={interval}
-          />
-          <UsageChart
             room={'overview'}
             name="power"
-            usageData={usageResource.data}
-            interval={interval}
-          />
-          <UsageChart
-            room={'overview'}
-            name="temp"
             usageData={usageResource.data}
             interval={interval}
           />

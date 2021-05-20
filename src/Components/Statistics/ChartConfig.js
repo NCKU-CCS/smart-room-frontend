@@ -39,12 +39,16 @@ const getUsageDataSeries = (data, callback) =>
         .map((x) => round(x, 3))
     : [];
 
-// const getTempDataSeries = (data) => (data ? data.map((x) => round(x, 2)) : []);
+const getTempDataSeries = (data) =>
+  data
+    ? Object.values(data)
+        .map((x) => round(x, 2))
+    : [];
 
-const getOptions = (usageConfig, usageData, room, interval) => {
+const getOptions = (usageConfig, usageData, room, interval, tempData) => {
   return {
     title: {
-      text: room + ' ' + usageConfig.name,
+      text: room,
       padding: 2,
       textStyle: {
         color: '#404040',
@@ -58,7 +62,7 @@ const getOptions = (usageConfig, usageData, room, interval) => {
         color: '#FFFFFF',
       },
       borderRadius: 5,
-      formatter: `{b0} </br> {a0}:&nbsp{c0} ${usageConfig.unit}`,
+      formatter: `{b0} </br> {a0}:&nbsp{c0} ${usageConfig.unit} </br> {a1}:&nbsp{c1} °C`,
     },
     legend: {
       data: ['Usage', 'Temperature'],
@@ -108,25 +112,25 @@ const getOptions = (usageConfig, usageData, room, interval) => {
           show: false,
         },
       },
-      // {
-      //   type: 'value',
-      //   name: 'Temp.',
-      //   axisLine: {
-      //     show: false,
-      //     lineStyle: {
-      //       color: '#404040',
-      //     },
-      //   },
-      //   axisTick: {
-      //     show: false,
-      //   },
-      //   splitLine: {
-      //     show: false,
-      //   },
-      //   axisLabel: {
-      //     formatter: '{value} °C',
-      //   },
-      // },
+      {
+        type: 'value',
+        name: 'Temp.',
+        axisLine: {
+          show: false,
+          lineStyle: {
+            color: '#404040',
+          },
+        },
+        axisTick: {
+          show: false,
+        },
+        splitLine: {
+          show: false,
+        },
+        axisLabel: {
+          formatter: '{value} °C',
+        },
+      },
     ],
     series: [
       {
@@ -137,14 +141,14 @@ const getOptions = (usageConfig, usageData, room, interval) => {
         },
         data: getUsageDataSeries(usageData, usageConfig.process),
       },
-      // {
-      //   name: 'Temperature',
-      //   type: 'line',
-      //   yAxisIndex: 1,
-      //   symbol: 'none',
-      //   color: '#909090',
-      //   data: getTempDataSeries(tempData),
-      // },
+      {
+        name: 'Temperature',
+        type: 'line',
+        yAxisIndex: 1,
+        symbol: 'none',
+        color: '#909090',
+        data: getTempDataSeries(tempData),
+      },
     ],
   };
 };

@@ -49,8 +49,8 @@ export const getStartEndDate = (range) => {
   const date = dayjs();
   const generateStartEnd = (day) => {
     return [
-      day.startOf('day').utc().format(DATE_FORMAT.concat('THH:mm:ss')),
-      day.endOf('day').utc().format(DATE_FORMAT.concat('THH:mm:ss')),
+      day.startOf('day').format(DATE_FORMAT.concat('THH:mm:ss')),
+      day.endOf('day').format(DATE_FORMAT.concat('THH:mm:ss')),
     ];
   };
   switch (range) {
