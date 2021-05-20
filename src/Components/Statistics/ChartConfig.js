@@ -91,7 +91,7 @@ const getOptions = (usageConfig, usageData, room, interval, tempData) => {
     },
     xAxis: [
       {
-        show: false,
+        show: true,
         data: getXAxis(interval),
         axisPointer: {
           type: 'none',
