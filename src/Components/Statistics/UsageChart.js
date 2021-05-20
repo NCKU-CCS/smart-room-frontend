@@ -8,7 +8,6 @@ function UsageChart({
   room,
   name,
   usageData,
-  // tempData,
   interval,
 }) {
   const usageConfig = MeterConstants[name];

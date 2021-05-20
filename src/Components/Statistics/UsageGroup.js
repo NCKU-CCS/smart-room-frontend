@@ -8,9 +8,6 @@ import rangeProp from '../../Constant/StatisticsConstants';
 import AppSpinner from '../Common/Spinner';
 import {
   getStartEndDate,
-  // parseTempData,
-  // aggregateTempData,
-  // alignStartEndDate,
 } from '../../Utils/Common';
 
 function UsageGroup({ range }) {
@@ -27,26 +24,7 @@ function UsageGroup({ range }) {
     },
   };
 
-  // [start, end] = alignStartEndDate(start, end);
-  // const envConfig = {
-  //   method: 'get',
-  //   url: '/v1/weather',
-  //   params: {
-  //     start,
-  //     end,
-  //   },
-  // };
-
   const usageResource = useAxiosEffect(usageConfig, [range]);
-  // const envResource = useAxiosEffect(envConfig, [range]);
-
-  // if (envResource.data) {
-  //   tempData = envResource.data;
-  //   if (range === rangeProp.Monthly.name) {
-  //     tempData = aggregateTempData(tempData);
-  //   }
-  //   tempData = parseTempData(tempData, quantity);
-  // }
 
   const getCharts = () => {
     if (usageResource.data) {
