@@ -16,7 +16,7 @@ function PowerConsumption() {
     if (resource.loading) {
       return <AppSpinner />;
     }
-    if (resource.data) {
+    if (resource.data.total) {
       return round(resource.data.total);
     }
     return 'Error';

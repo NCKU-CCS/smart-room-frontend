@@ -8,7 +8,7 @@ function ConsumptionDetail({ type, resource, border, date, name }) {
     if (resource.loading) {
       return <AppSpinner />;
     } 
-    if (resource.data) {
+    if (resource.data.room[name]) {
       return resource.data.room[name].toFixed(2)
     }
     return 'Error';
